@@ -1,0 +1,410 @@
+#Programas para Bioinformática con 32 cores.
+##Tiempo estimado 47min
+
+#Actualizar repositorios del sistema
+sudo apt-get update
+sudo apt-get upgrade --yes
+
+#Instalar terminator
+sudo apt install terminator --yes
+which terminator > LOG.txt
+
+#Instalar htop
+sudo apt install htop
+which terminator >> LOG.txt
+
+#Ir a directorio principal
+cd
+#Crear carpeta donde se instalaran los programas
+mkdir TOOLS
+cd TOOLS
+
+#Instalar notepadqq (Similar a notpad++)
+sudo add-apt-repository ppa:notepadqq-team/notepadqq #presione enter
+sudo apt-get update 
+sudo apt-get install notepadqq --yes
+which notepadqq >> LOG.txt
+
+#confirmar que haya git
+sudo apt install git --yes
+which git >> LOG.txt
+
+#Instalar pip
+sudo apt install python-pip
+which python-pip >> LOG.txt
+##pip install --upgrade setuptools 
+##or(on Ubuntu)
+sudo apt-get install python-setuptools --yes
+#You may also use old-style installation scripts: ./install.sh or ./install_full.sh
+which python-setuptools >> LOG.txt
+
+
+#Java Run Environment.
+sudo apt-get install default-jre --yes
+sudo apt-get install default-jdk --yes
+
+#wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz"
+#tar -xvzf jdk-8u144-linux-x64.tar.gz
+#sudo install /usr/bin/java java 
+#cd ~/TOOLS
+
+#Instalar apache (Pre-requisito para Jmodeltest)
+sudo apt install ant --yes
+which ant >> LOG.txt
+
+#1-Manipulación de Fastq a Fasta
+##FastX Tollkit: Fastq_to_Fasta
+sudo apt install fastx-toolkit --yes
+which fastq_to_fasta >> LOG.txt
+##Instalar Bioawk depends on zlib
+sudo apt install byacc git
+#git clone git://github.com/lh3/bioawk.git && cd bioawk && make && mv awk bioawk && sudo cp bioawk /usr/local/bin/
+git clone --recursive git://github.com/lh3/bioawk.git
+cd bioawk
+make 
+sudo cp bioawk /usr/local/bin
+cd .. && rm -rf bioawk
+
+#2-Control de Calidad de los READS
+##SeqStat - Ver estadisticas de secuencias
+##Dependencias cmake
+sudo apt install cmake
+sudo apt install biosquid --yes
+which seqstat >> LOG.txt
+##assembly-stats - Estadísticas de ensamblaje
+git clone --recursive git://github.com/sanger-pathogens/assembly-stats.git
+cd assembly-stats
+mkdir build
+cd build
+cmake ..
+make
+make test
+make install
+#agregar manualmente el archivo /build/assembly-stats al usr/local/bin
+#cd ~/TOOLS
+sudo cp assembly-stats /usr/local/bin
+
+
+##Fastqc
+#git clone --recursive git://github.com/s-andrews/FastQC.git
+sudo apt install fastqc --yes
+which fastqc >> LOG.txt
+##SolexaQA(Dynamictrim)-v3.1.7.1
+mkdir SolexaQA
+cd SolexaQA
+wget https://sourceforge.net/projects/solexaqa/files/src/SolexaQA%2B%2B_v3.1.7.1.zip
+unzip SolexaQA++_v3.1.7.1.zip
+rm -r SolexaQA++_v3.1.7.1.zip
+rm -r Windows_x64
+rm -r MacOs_10.7+
+rm -r source
+cd Linux_x86 
+#PATH=$PATH:~/TOOLS/SolexaQA++
+#export PATH
+#source ~/.bashrc
+sudo cp SolexaQA++ /usr/local/bin
+cd ~/TOOLS
+##TrimGalore
+###Instalar cutadapt
+sudo apt install python-cutadapt
+git clone --recursive git://github.com/FelixKrueger/TrimGalore.git
+
+
+
+##Trimmomatic
+sudo apt install trimmomatic --yes
+
+
+#3-Ensambladores de novo
+
+#instalar kmergenie 1.7048
+wget http://kmergenie.bx.psu.edu/kmergenie-1.7048.tar.gz
+sudo tar -xzf kmergenie-1.7048.tar.gz
+cd kmergenie-1.7048
+make
+PATH=$PATH:~/TOOLS/kmergenie-1.7048
+export PATH
+source ~/.bashrc
+cd ~/TOOLS
+
+#DEPENDENCIAS:
+##instalar pdflatex (requerido para velvet)
+sudo apt install texlive-latex-base
+##Zlib
+sudo apt-get install zlib1g-dev libncurses5-dev --yes
+
+#Velvet.
+git clone --recursive git://github.com/dzerbino/velvet.git
+cd velvet 
+#compilar para que use al menos  101 kmers
+make 'MAXKMERLENGTH=101'
+make BUNDLEDZLIB=1
+#Si no funciona, entonces primero eliminar velveth y velvetg de usr/bin y repetir el make.
+PATH=$PATH:~/TOOLS/velvet
+export PATH
+source ~/.bashrc
+#sudo apt install velvet --yes
+cd ~/TOOLS
+which velvetg >> LOG.txt
+which velveth >> LOG.txt
+
+#Velvetoptimiser:
+sudo apt-get install velvetoptimiser --yes
+
+#Oases(Ensamblador para transcriptómica, usa velvet).
+cd ~/TOOLS
+git clone --recursive git://github.com/dzerbino/oases.git
+cd oases
+make BUNDLEDZLIB=1
+make ’MAXKMERLENGTH=101’
+sudo PATH=$PATH:~/TOOLS/oases
+export PATH
+source ~/.bashrc
+cd ~/TOOLS
+
+#MIRA
+#wget https://downloads.sourceforge.net/project/mira-assembler/MIRA/stable/mira_4.0.2_linux-gnu_x86_64_static.tar.bz2
+#sudo tar -xjf mira_4.0.2_linux-gnu_x86_64_static.tar.bz2
+#cd mira_4.0.2_linux-gnu_x86_64_static/bin
+#PATH=$PATH:~/TOOLS/mira_4.0.2_linux-gnu_x86_64_static/bin
+#export PATH
+#source ~/.bashrc
+#cd ~/TOOLS
+sudo apt install mira-assembler --yes
+
+
+#instalar Bioperl
+#sudo apt-get install bioperl
+#cpan[3]> install Bio::Seq
+#Bio::Phylo is not installed
+#Inline::C is not installed
+
+#sudo apt install perlbrew
+#Instalar el modulo requerido como super usuario
+#cpan[1]> install VelvetOpt::Assembly module
+#VelvetOptimizer 2.2.5
+# http://bioinformatics.net.au/software.velvetoptimiser.shtml
+wget http://www.vicbioinformatics.com/VelvetOptimiser-2.2.5.tar.gz
+sudo tar zxvf VelvetOptimiser-2.2.5.tar.gz
+cd VelvetOptimiser-2.2.5
+PATH=$PATH:~/TOOLS/VelvetOptimiser-2.2.5
+export PATH
+source ~/.bashrc
+cd ~/TOOLS
+
+##QUAST, tambien se puede correr online
+sudo apt-get install -y pkg-config libfreetype6-dev libpng-dev python-matplotlib --yes
+wget https://downloads.sourceforge.net/project/quast/quast-4.6.3.tar.gz
+sudo tar -xzf quast-4.6.3.tar.gz
+cd quast-4.6.3
+sudo ./setup.py install_full
+cd ~/TOOLS
+
+##K-mer Analysis Tolkit (KAT)
+##Requisitos
+#GCC V4.8+
+sudo apt-get install gcc
+#make
+#autoconf V2.53+
+sudo apt-get install autoconf
+#automake V1.11+
+sudo apt-get install automake
+#libtool V2.4.2+
+sudo apt-get install libtool
+#pthreads
+#zlib
+#Python V3.5+
+sudo apt-get install python3.5-dev
+###numpy para python 2+
+sudo pip install numpy scipy
+pip install --upgrade pip
+###numpy, scipy, matplotlib, tabulate para python 3+
+sudo apt update  
+sudo apt install --no-install-recommends python3-minimal python3  
+sudo apt install python3-numpy python3-scipy python3-matplotlib python3-tabulate --yes
+#Python V3.6
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6 --yes
+#Sphinx-doc V1.3+
+sudo apt-get install libpthread-stubs0-dev
+cd ~/TOOLS
+#Clone the git repository  (For ssh: git clone git@github.com:TGAC/KAT.git; or for https: git clone https://github.com/TGAC/KAT.git)
+git clone --recursive git://github.com/TGAC/KAT.git
+#Change directory into KAT project
+cd KAT
+#Build boost (this may take some time)
+./build_boost.sh
+#Setup the KAT configuration scripts by typing
+./autogen.sh
+#Generate makefiles and confirm dependencies usr/local/bin:
+./configure
+##ERROR
+#checking consistency of all components of python development environment... no
+#configure: WARNING:
+ # Could not link test program to Python. Maybe the main Python library has been
+  #installed in some non-standard library path. If so, pass it to configure,
+  #via the LIBS environment variable.
+  #Example: ./configure LIBS="-L/usr/non-standard-path/python/lib"
+  #============================================================================
+   #ERROR!
+   #You probably have to install the development version of the Python package
+   #for your distribution.  The exact name of this package varies among them.
+  #============================================================================
+#
+#configure: error:
+#                Python3 not detected.
+#                We suggest installing python3 via conda with the required packages (numpy, scipy, matplotlib, sphinx).
+#                Please see .travis/install.sh for details of how we do this.
+#                Alternatively, try installing python anaconda.
+
+#Compile software with 4 cores
+make -j 4
+#run tests
+make check
+#Install
+sudo make install
+
+
+
+#4-Instalar alineadores
+##Dependencias para mummer:
+sudo apt install fig2dev --yes
+sudo apt install gnuplot-nox --yes
+#sudo apt install gnuplot-qt 
+#sudo apt install gnuplot-x11
+sudo apt install xfig --yes
+##mummer
+sudo apt install mummer --yes
+which mummer >> LOG.txt
+##Bowtie
+sudo apt install bowtie --yes
+which bowtie >> LOG.txt
+##bowtie2
+sudo apt install bowtie2 --yes
+which bowtie2 >> LOG.txt
+##bwa
+sudo apt install bwa --yes
+which bwa >> LOG.txt
+##cufflinks
+sudo apt install cufflinks --yes
+which cufflinks >> LOG.txt
+##smalt
+sudo apt install smalt --yes
+which smalt >> LOG.txt
+##Samtools
+###sudo apt install samtools --yes
+###which samtools >> LOG.txt
+git clone --recursive https://github.com/samtools/samtools.git
+cd samtools
+autoheader
+autoconf
+./configure
+make
+sudo make install
+cd ~/TOOLS
+
+##TopHat
+sudo apt install tophat
+which tophat-2 >> LOG.txt
+##BLAST
+sudo apt install ncbi-blast+ --yes
+which blastn >> LOG.txt
+which blastp >> LOG.txt
+sudo apt install blast2 --yes
+
+
+#5-Instalar visualizadores
+##Artermis
+sudo apt install artemis --yes
+which artemis >> LOG.txt
+##Circos (No funcionaba en ubuntu 16.04LTS
+sudo apt install circos --yes
+which circos >> LOG.txt
+
+#wget https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.3/bowtie2-2.3.3-linux-x86_64.zip
+#unzip bowtie2-2.3.3-linux-x86_64.zip
+#cd bowtie2-2.3.3 
+#PATH=$PATH:~/TOOLS/bowtie2-2.3.3
+#export PATH
+#source ~/.bashrc
+#cd ~/TOOLS
+
+##Cmake
+sudo apt-get install cmake --yes
+
+##Boost Libraries
+sudo apt-get install libboost-all-dev --yes
+
+##Eigen Libraries
+wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz
+sudo tar -xvzf 3.3.4.tar.gz
+mkdir build_eigen_dir
+cd build_eigen_dir
+cmake ~/TOOLS/eigen-eigen-5a0156e40feb
+sudo make install
+source ~/.bashrc
+cd ~/TOOLS/
+
+##TopHat
+#wget https://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.Linux_x86_64.tar.gz
+#sudo tar xvfz tophat-2.1.1.Linux_x86_64.tar.gz
+#cd tophat-2.1.1.Linux_x86_64
+#sudo PATH=$PATH:~/TOOLS/tophat-2.1.1.Linux_x86_64
+#export PATH
+#source ~/.bashrc
+#cd ~/TOOLS/
+
+
+##Cufflinks
+#wget http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.Linux_x86_64.tar.gz
+#cd cufflinks-2.2.1.Linux_x86_64
+#tar -xvzf cufflinks-2.2.1.Linux_x86_64.tar.gz
+#sudo PATH=$PATH:~/TOOLS/cufflinks-2.2.1.Linux_x86_64
+#export PATH
+#source ~/.bashrc
+#which cufflinks-2 >> LOG.txt
+
+#6-Alineamiento y filogenia
+##Instalar MAFFT
+sudo apt install mafft --yes
+which mafft >> LOG.txt
+##Instalar clustalw
+sudo apt install clustalw --yes
+which clustalw >> LOG.txt
+##Instalar clustalx
+sudo apt install clustalx --yes
+which clustalx >> LOG.txt
+
+#7-Varios propositos
+##UGENE(No funciona interfaz gráfica)
+#sudo apt install ugene --yes
+
+#which ugene >> LOG.txt
+##r ¿? No se pudo usar después de su instalación
+sudo apt install r-base-core
+which r-base-core >> LOG.txt
+##r
+sudo apt install r-cran-littler
+which r-base-core >> LOG.txt
+
+
+#Desistalar programas
+#sudo apt-get remove Programa
+#sudo apt-get remove --auto-remove Programa
+#sudo apt-get purge PROGRAMA
+
+#Metagenomica
+##Instalar KRAKEN1
+##sudo apt install kraken
+
+#Instalar KRAKEN2
+#git clone 
+git clone --recursive git://github.com/DerrickWood/kraken2.git
+cd kraken2
+mkdir bin
+sudo ./install_kraken2.sh /bin
+cd ~/TOOLS/
+mkdir 
+kraken2-build --standard --threads 32 --db KRAKEN-DB/
+
