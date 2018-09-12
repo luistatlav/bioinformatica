@@ -149,7 +149,11 @@ which velvetg >> LOG.txt
 which velveth >> LOG.txt
 
 #Velvetoptimiser:
-sudo apt-get install velvetoptimiser --yes
+##falta copiarla al path
+cd ~/TOOLS
+git clone --recursive git://github.com/tseemann/VelvetOptimiser.git
+#sudo cp VelvetOptimiser /usr/local/bin
+#cd .. && rm -rf VelvetOptimiser
 
 #Oases(Ensamblador para transcriptómica, usa velvet).
 cd ~/TOOLS
@@ -407,4 +411,18 @@ sudo ./install_kraken2.sh /bin
 cd ~/TOOLS/
 mkdir 
 kraken2-build --standard --threads 32 --db KRAKEN-DB/
+
+
+#Instalar KRONA
+#git clone 
+git clone --recursive git://github.com/marbl/Krona.git
+cd Krona
+cd KronaTools
+sudo ./install.pl
+
+mkdir bin
+sudo ./install_kraken2.sh /bin
+cd ~/TOOLS/
+mkdir 
+kraken2-build --standard --threads 32 --db KRAKEN-DB/https://github.com/marbl/Krona.git
 
