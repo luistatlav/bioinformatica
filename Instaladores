@@ -425,3 +425,17 @@ cd VIP/installer
 chmod 755 *
 sudo sh dependency_installer.sh #--y --y
 sudo sh db_installer.sh -r [PATH]/[TO]/[DATABASE] #Carpeta donde se instalara la base de datos
+
+#127.0.0.1:7922
+#Installar pavian (Metagenomica)
+git clone --recursive git://github.com/fbreitwieser/pavian.git
+#ejecutar R
+#R
+#*Instalar pavian en R
+#options(repos = c(CRAN = "http://cran.rstudio.com"))
+#if (!require(remotes)) { install.packages("remotes") }
+#remotes::install_github("fbreitwieser/pavian")
+#*Correr pavian:
+#pavian::runApp(port=5000)
+##Si no funciona o da error de "had non-zero exit status"
+#sudo apt-get install curl libssl-dev libcurl4-openssl-dev libxml2-dev
