@@ -119,7 +119,7 @@ sudo apt install trimmomatic --yes
 
 #instalar kmergenie 1.7048
 wget http://kmergenie.bx.psu.edu/kmergenie-1.7048.tar.gz
-sudo tar -xzf kmergenie-1.7048.tar.gz
+sudo tar -xzvf kmergenie-1.7048.tar.gz
 cd kmergenie-1.7048
 make
 PATH=$PATH:~/TOOLS/kmergenie-1.7048
@@ -168,7 +168,7 @@ cd ~/TOOLS
 
 #MIRA
 #wget https://downloads.sourceforge.net/project/mira-assembler/MIRA/stable/mira_4.0.2_linux-gnu_x86_64_static.tar.bz2
-#sudo tar -xjf mira_4.0.2_linux-gnu_x86_64_static.tar.bz2
+#sudo tar -xjvf mira_4.0.2_linux-gnu_x86_64_static.tar.bz2
 #cd mira_4.0.2_linux-gnu_x86_64_static/bin
 #PATH=$PATH:~/TOOLS/mira_4.0.2_linux-gnu_x86_64_static/bin
 #export PATH
@@ -189,7 +189,7 @@ sudo apt install mira-assembler --yes
 #VelvetOptimizer 2.2.5
 # http://bioinformatics.net.au/software.velvetoptimiser.shtml
 wget http://www.vicbioinformatics.com/VelvetOptimiser-2.2.5.tar.gz
-sudo tar zxvf VelvetOptimiser-2.2.5.tar.gz
+sudo tar -zxvf VelvetOptimiser-2.2.5.tar.gz
 cd VelvetOptimiser-2.2.5
 PATH=$PATH:~/TOOLS/VelvetOptimiser-2.2.5
 export PATH
@@ -199,7 +199,7 @@ cd ~/TOOLS
 ##QUAST, tambien se puede correr online
 sudo apt-get install -y pkg-config libfreetype6-dev libpng-dev python-matplotlib --yes
 wget https://downloads.sourceforge.net/project/quast/quast-4.6.3.tar.gz
-sudo tar -xzf quast-4.6.3.tar.gz
+sudo tar -xzvf quast-4.6.3.tar.gz
 cd quast-4.6.3
 sudo ./setup.py install_full
 cd ~/TOOLS
