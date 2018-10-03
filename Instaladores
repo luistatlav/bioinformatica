@@ -65,7 +65,7 @@ make
 sudo cp bioawk /usr/local/bin
 cd .. && rm -rf bioawk
 ##Obtener contigs más grandes
-#$ time bioawk -c fastx '{if(length($seq)>1000){print ">"$name,print $seq}}' *.fasta > MasDe1000.fa
+#$ time bioawk -c fastx '{if(length($seq)>1000){print ">"$name;print $seq}}' *.fasta > MasDe1000.fa
 
 #2-Control de Calidad de los READS
 ##SeqStat - Ver estadisticas de secuencias
