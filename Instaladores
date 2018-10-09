@@ -325,6 +325,11 @@ sudo apt install blast2 --yes
 #sudo update_blastdb --passive --timeout 300 --force --verbose nr
 #ls *.gz |xargs -n1 tar -xzvf
 #rm *.gz.*
+#Dar formato a multifasta
+##Nucleotidos
+### makeblastdb -dbtype nucl -in MULTI.fasta -input_type fasta -title NUEVO-titulo -parse_seqids -hash_index
+##Proteinas
+### makeblastdb -dbtype prot -in MULTI.fasta -input_type fasta -title NUEVO-titulo -parse_seqids -hash_index
 
 
 #5-Instalar visualizadores
