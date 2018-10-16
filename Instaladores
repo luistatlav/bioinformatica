@@ -453,3 +453,11 @@ git clone --recursive git://github.com/fbreitwieser/pavian.git
 #pavian::runApp(port=5000)
 ##Si no funciona o da error de "had non-zero exit status"
 #sudo apt-get install curl libssl-dev libcurl4-openssl-dev libxml2-dev
+
+#Instalar Bioconda para Metaplha2
+cd ~/TOOLS/
+##Descargar conda
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sudo bash Miniconda3-latest-Linux-x86_64.sh --yes
+#enter
+
