@@ -458,6 +458,23 @@ git clone --recursive git://github.com/fbreitwieser/pavian.git
 cd ~/TOOLS/
 ##Descargar conda
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-sudo bash Miniconda3-latest-Linux-x86_64.sh --yes
-#enter
+sudo bash Miniconda3-latest-Linux-x86_64.sh
+#enter, yes, yes
+#cerrar y abrir nuevo terminal
+#revisar paquetes:
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+#Ejemplo: instalar bwa (bwa, perl, ca-certificates, openssl, certifi, conda
+conda install bwa
+#y
+##Lista de paquetes:
+#https://bioconda.github.io/recipes.html#recipes
+
+#Instalando Metaphlan2
+sudo apt install metaphlan2
+#ó por conda 
+#conda install metaphlan2
+#pide downgraded python de 3.7 a 2.7 conda-forge
+#n
 
