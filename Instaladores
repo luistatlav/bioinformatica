@@ -475,7 +475,7 @@ conda install bwa
 sudo apt install metaphlan2
 yes #pemritir generarse base de datos por el script que tarda unos 20 min
 #ó por conda 
-#conda install metaphlan2
+#conda install -c bioconda metaphlan2 
 #pide downgraded python de 3.7 a 2.7 conda-forge
 #n
 
