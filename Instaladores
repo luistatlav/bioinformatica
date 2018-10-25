@@ -331,6 +331,9 @@ sudo apt install blast2 --yes
 ##Proteinas
 ### makeblastdb -dbtype prot -in MULTI.fasta -input_type fasta -title NUEVO-titulo -parse_seqids -hash_index
 
+#Instalar herramientas de búsqueda de ncbi
+sudo apt install ncbi-entrez-direct
+##esearch
 
 #5-Instalar visualizadores
 ##Artermis
