@@ -443,7 +443,7 @@ sudo sh dependency_installer.sh #--y --y
 sudo sh db_installer.sh -r [PATH]/[TO]/[DATABASE] #Carpeta donde se instalara la base de datos
 
 #127.0.0.1:7922
-#Installar pavian (Metagenomica)
+#Instalar pavian (Metagenomica)
 git clone --recursive git://github.com/fbreitwieser/pavian.git
 #ejecutar R
 #R
@@ -481,3 +481,5 @@ yes #pemritir generarse base de datos por el script que tarda unos 20 min
 #pide downgraded python de 3.7 a 2.7 conda-forge
 #n
 
+#Instalando fastq-mcf
+git clone --recursive git://github.com/ExpressionAnalysis/ea-utils.git
