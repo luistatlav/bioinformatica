@@ -2,8 +2,7 @@
 ##Tiempo estimado 47min
 
 #Actualizar repositorios del sistema
-sudo apt-get update
-sudo apt-get upgrade --yes
+sudo apt-get update; sudo apt-get upgrade --yes
 
 #Instalar terminator
 sudo apt install terminator --yes
