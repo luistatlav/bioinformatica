@@ -52,7 +52,7 @@ sudo apt install ant --yes
 which ant >> LOG.txt
 
 #1-Manipulación de Fastq a Fasta
-##FastX Tollkit: Fastq_to_Fasta
+##FastX Toolkit: Fastq_to_Fasta
 sudo apt install fastx-toolkit --yes
 which fastq_to_fasta >> LOG.txt
 ##Instalar Bioawk depends on zlib
