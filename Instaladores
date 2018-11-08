@@ -56,6 +56,7 @@ which ant >> LOG.txt
 sudo apt install texlive-latex-base
 ##Zlib (para bioawk)
 sudo apt-get install zlib1g-dev libncurses5-dev --yes
+##Bio::SeqIO module (para velvetoptimiser)
 
 
 #1-Manipulación de Fastq a Fasta
@@ -156,6 +157,10 @@ which velveth >> LOG.txt
 ##falta copiarla al path
 cd ~/TOOLS
 git clone --recursive git://github.com/tseemann/VelvetOptimiser.git
+PATH=$PATH:~/TOOLS/VelvetOptimiser
+export PATH
+source ~/.bashrc
+cd ~/TOOLS
 #sudo cp VelvetOptimiser /usr/local/bin
 #cd .. && rm -rf VelvetOptimiser
 
