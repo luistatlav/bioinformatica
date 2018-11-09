@@ -182,9 +182,9 @@ cd ~/TOOLS
 #Velvet.
 git clone --recursive git://github.com/dzerbino/velvet.git
 cd velvet 
-#compilar para que use al menos  101 kmers
-make 'MAXKMERLENGTH=101'
-make BUNDLEDZLIB=1
+#compilar para que use al menos 191 kmers (tb puede hacerse solo para max 101)
+make 'MAXKMERLENGTH=191'
+#make BUNDLEDZLIB=1 ##puede malograr la compilacion de 101
 #Si no funciona, entonces primero eliminar velveth y velvetg de usr/bin y repetir el make.
 PATH=$PATH:~/TOOLS/velvet
 export PATH
@@ -204,6 +204,12 @@ source ~/.bashrc
 cd ~/TOOLS
 #sudo cp VelvetOptimiser /usr/local/bin
 #cd .. && rm -rf VelvetOptimiser
+
+#SPADES
+wget http://cab.spbu.ru/files/release3.13.0/SPAdes-3.13.0-Linux.tar.gz
+$ tar -xzf SPAdes-3.13.0.tar.gz
+$ cd SPAdes-3.13.0
+#copiar al path o en usr/local/bin
 
 #Oases(Ensamblador para transcriptómica, usa velvet).
 cd ~/TOOLS
