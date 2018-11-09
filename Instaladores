@@ -51,13 +51,51 @@ sudo apt-get install default-jdk --yes
 sudo apt install ant --yes
 which ant >> LOG.txt
 
+##Cmake
+sudo apt-get install cmake --yes
+
+##Boost Libraries
+sudo apt-get install libboost-all-dev --yes
+
+##Eigen Libraries
+wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz
+sudo tar -xvzf 3.3.4.tar.gz
+mkdir build_eigen_dir
+cd build_eigen_dir
+cmake ~/TOOLS/eigen-eigen-5a0156e40feb
+sudo make install
+source ~/.bashrc
+cd ~/TOOLS/
+
 #DEPENDENCIAS:
 ##instalar pdflatex (requerido para velvet)
 sudo apt install texlive-latex-base
 ##Zlib (para bioawk)
 sudo apt-get install zlib1g-dev libncurses5-dev --yes
 ##Bio::SeqIO module (para velvetoptimiser)
+cpan
+install Bio::SeqIO module
+sudo
+exit
 
+#instalar Bioperl
+#sudo apt-get install bioperl
+cpan[3]> install Bio::Seq
+#Bio::Phylo is not installed
+#Inline::C is not installed
+
+#sudo apt install perlbrew
+#Instalar el modulo requerido como super usuario
+#cpan[1]> install VelvetOpt::Assembly module
+#VelvetOptimizer 2.2.5
+# http://bioinformatics.net.au/software.velvetoptimiser.shtml
+wget http://www.vicbioinformatics.com/VelvetOptimiser-2.2.5.tar.gz
+sudo tar -zxvf VelvetOptimiser-2.2.5.tar.gz
+cd VelvetOptimiser-2.2.5
+PATH=$PATH:~/TOOLS/VelvetOptimiser-2.2.5
+export PATH
+source ~/.bashrc
+cd ~/TOOLS
 
 #1-Manipulación de Fastq a Fasta
 ##FastX Toolkit: Fastq_to_Fasta
@@ -115,6 +153,8 @@ sudo cp SolexaQA++ /usr/local/bin
 cd ~/TOOLS
 ##TrimGalore
 ###Instalar cutadapt
+sudo apt install cutadapt
+ó
 sudo apt install python-cutadapt
 git clone --recursive git://github.com/FelixKrueger/TrimGalore.git
 
@@ -127,6 +167,7 @@ sudo apt install trimmomatic --yes
 #3-Ensambladores de novo
 
 #instalar kmergenie 1.7048
+##requiere python y R
 wget http://kmergenie.bx.psu.edu/kmergenie-1.7048.tar.gz
 sudo tar -xzvf kmergenie-1.7048.tar.gz
 cd kmergenie-1.7048
@@ -185,25 +226,6 @@ cd ~/TOOLS
 #cd ~/TOOLS
 sudo apt install mira-assembler --yes
 
-
-#instalar Bioperl
-#sudo apt-get install bioperl
-#cpan[3]> install Bio::Seq
-#Bio::Phylo is not installed
-#Inline::C is not installed
-
-#sudo apt install perlbrew
-#Instalar el modulo requerido como super usuario
-#cpan[1]> install VelvetOpt::Assembly module
-#VelvetOptimizer 2.2.5
-# http://bioinformatics.net.au/software.velvetoptimiser.shtml
-wget http://www.vicbioinformatics.com/VelvetOptimiser-2.2.5.tar.gz
-sudo tar -zxvf VelvetOptimiser-2.2.5.tar.gz
-cd VelvetOptimiser-2.2.5
-PATH=$PATH:~/TOOLS/VelvetOptimiser-2.2.5
-export PATH
-source ~/.bashrc
-cd ~/TOOLS
 
 ##QUAST, tambien se puede correr online
 sudo apt-get install -y pkg-config libfreetype6-dev libpng-dev python-matplotlib --yes
@@ -358,21 +380,7 @@ which circos >> LOG.txt
 #source ~/.bashrc
 #cd ~/TOOLS
 
-##Cmake
-sudo apt-get install cmake --yes
 
-##Boost Libraries
-sudo apt-get install libboost-all-dev --yes
-
-##Eigen Libraries
-wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz
-sudo tar -xvzf 3.3.4.tar.gz
-mkdir build_eigen_dir
-cd build_eigen_dir
-cmake ~/TOOLS/eigen-eigen-5a0156e40feb
-sudo make install
-source ~/.bashrc
-cd ~/TOOLS/
 
 ##TopHat
 #wget https://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.Linux_x86_64.tar.gz
