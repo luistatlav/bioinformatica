@@ -172,8 +172,12 @@ git clone --recursive git://github.com/FelixKrueger/TrimGalore.git
 
 
 ##Trimmomatic
-sudo apt install trimmomatic --yes
-
+#sudo apt install trimmomatic --yes
+git clone --recursive git://github.com/timflutre/trimmomatic.git
+cd trimmomatic
+make
+make check
+sudo make install INSTALL="/usr/local/"
 
 #3-Ensambladores de novo
 
