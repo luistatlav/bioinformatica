@@ -131,6 +131,17 @@ sudo make install
 #cd ~/TOOLS
 sudo cp assembly-stats /usr/local/bin
 
+##Fastp (También para PacBio, Nanopore e Illumina)
+cd ~/TOOLS
+#Descargar de github
+git clone --recursive git://github.com/OpenGene/fastp.git 
+# build
+cd fastp
+make
+# Install
+sudo make install
+
+
 
 ##Fastqc
 #git clone --recursive git://github.com/s-andrews/FastQC.git
