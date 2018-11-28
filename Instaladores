@@ -339,7 +339,7 @@ which bowtie >> LOG.txt
 ##bowtie2
 sudo apt install bowtie2 --yes
 which bowtie2 >> LOG.txt
-##bwa
+##bwa-->También para reads grandes
 sudo apt install bwa --yes
 which bwa >> LOG.txt
 ##cufflinks
@@ -359,6 +359,8 @@ autoconf
 make
 sudo make install
 cd ~/TOOLS
+##blasr--> Para PacBio
+sudo apt install blasr
 
 ##TopHat
 sudo apt install tophat
