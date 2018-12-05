@@ -522,3 +522,6 @@ yes #pemritir generarse base de datos por el script que tarda unos 20 min
 
 #Instalando fastq-mcf
 git clone --recursive git://github.com/ExpressionAnalysis/ea-utils.git
+
+#Analisis de metilación: (PaBio) --
+sudo apt-get install kineticstool
