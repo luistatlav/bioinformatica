@@ -97,6 +97,8 @@ export PATH
 source ~/.bashrc
 cd ~/TOOLS
 
+
+
 #1-Manipulación de Fastq a Fasta
 ##FastX Toolkit: Fastq_to_Fasta
 sudo apt install fastx-toolkit --yes
