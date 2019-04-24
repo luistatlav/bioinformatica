@@ -527,3 +527,18 @@ git clone --recursive git://github.com/ExpressionAnalysis/ea-utils.git
 
 #Analisis de metilación: (PaBio) --
 sudo apt-get install kineticstool
+
+#Herramientas para metagenomas
+
+##VirusDetect
+git clone git://github.com/kentnf/VirusDetect.git
+###verificar si está isntalado: bwa, samtools, velvet, blast, hisat2
+##instalar hisat2
+sudo apt install hisat2
+##instalar bioperl
+sudo apt-get install bioperl
+##Prorbar 
+perl virus_detect.pl
+##Si da error, entonces instalar por cpan lo indicado en la advetencia.
+##Cuando funcione apropiadamente virus_detect.pl (mostrar ayuda), entonces copiar en usr/locall/bin
+sudo ln  -s  ~/TOOLS/VirusDetect/virus_detect.pl
