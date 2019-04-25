@@ -153,7 +153,19 @@ $ sudo cpan Getopt::Long Pod::Usage File::Temp Fcntl Digest::MD5 Cwd List::Util
 ##Statistics::PCA
 ##MIME::Base64
 $ sudo cpan Getopt::Long Pod::Usage File::Temp Fcntl Cwd JSON Cairo Statistics::PCA MIME::Base64
-
+##Installation
+$ cd /programinstallers/
+$ wget -N http://downloads.sourceforge.net/project/prinseq/standalone/prinseq-lite-0.20.4.tar.gz
+$ tar -zxvf prinseq-lite-0.20.4.tar.gz
+##Install
+$ cp -puv prinseq-lite-0.20.4/prinseq-lite.pl /usr/local/bin/prinseq-lite && chmod +x /usr/local/bin/prinseq-lite
+$ cp -puv prinseq-lite-0.20.4/prinseq-graphs.pl /usr/local/bin/prinseq-graphs && chmod +x /usr/local/bin/prinseq-graphs
+##For web page documentation
+$ mkdir web/prinseq
+$ cp -puv prinseq-lite-0.20.4/README web/prinseq/README.txt
+$ cp -puvr prinseq-lite-0.20.4/example web/prinseq
+##Cleanup
+$ rm prinseq-lite-0.20.4 -rf
 
 ##Fastp (También para PacBio, Nanopore e Illumina)
 cd ~/TOOLS
