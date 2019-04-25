@@ -142,6 +142,18 @@ sudo cp assembly-stats /usr/local/bin
 ##Cwd
 ##List::Util qw(sum min max)
 $ sudo cpan Getopt::Long Pod::Usage File::Temp Fcntl Digest::MD5 Cwd List::Util
+#Perl modules for prinseq-graphs
+##Getopt::Long
+##Pod::Usage
+##File::Temp qw(tempfile)
+##Fcntl qw(:flock SEEK_END)
+##Cwd
+##JSON
+##Cairo
+##Statistics::PCA
+##MIME::Base64
+$ sudo cpan Getopt::Long Pod::Usage File::Temp Fcntl Cwd JSON Cairo Statistics::PCA MIME::Base64
+
 
 ##Fastp (También para PacBio, Nanopore e Illumina)
 cd ~/TOOLS
