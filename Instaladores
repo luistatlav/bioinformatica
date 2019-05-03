@@ -570,6 +570,20 @@ git clone --recursive git://github.com/ExpressionAnalysis/ea-utils.git
 #Analisis de metilación: (PaBio) --
 sudo apt-get install kineticstool
 
+##RATT
+#Descargar de https://ratt.svn.sourceforge.net/svnroot/ratt o
+mkdir ratt
+cd ratt 
+sudo apt install subversion
+svn co "https://svn.code.sf.net/p/ratt/code/" ratt-code
+sudo cp start.ratt.sh /usr/local/bin
+RATT_HOME=~/TOOLS/ratt/; export RATT_HOME
+RATT_CONFIG=$RATT_HOME/RATT.config_bac; export RATT_CONFIG
+cd ratt-code
+sudo cp star.ratt.sh /usr/local/bin/
+
+
+
 #Herramientas para metagenomas
 
 ##VirusDetect
