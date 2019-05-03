@@ -398,6 +398,14 @@ cd ~/TOOLS
 ##blasr--> Para PacBio
 sudo apt install blasr
 
+##weeSAM
+#weeSAM is a python script which produces coverage statistics and coverage plots from an input SAM or BAM file. 
+#Figures and stats are written up in HTML so users can easily view the coverage for their reference assembly.
+git clone --recursive https://github.com/centre-for-virus-research/weeSAM.git
+cd weeSAM
+sudo cp weeSAM /usr/local/bin/
+cd ~/TOOLS
+
 ##TopHat
 sudo apt install tophat
 which tophat-2 >> LOG.txt
