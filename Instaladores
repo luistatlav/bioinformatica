@@ -406,6 +406,21 @@ cd weeSAM
 sudo cp weeSAM /usr/local/bin/
 cd ~/TOOLS
 
+#gecode: A tool to GENerate COnsensus REads.
+# step 1: download and compile htslib from: https://github.com/samtools/htslib
+# step 2: get gencore source (you can also use browser to download from master or releases)
+git clone https://github.com/OpenGene/gencore.git
+# step 3: build
+cd gencore
+make
+# step 4: install
+sudo make install
+#Sino funciona posiblemente hay que isntalar htslib
+git clone https://github.com/samtools/htslib.git
+cd htslib
+make
+sudo make install
+
 ##TopHat
 sudo apt install tophat
 which tophat-2 >> LOG.txt
