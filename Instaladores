@@ -420,6 +420,7 @@ git clone https://github.com/samtools/htslib.git
 cd htslib
 make
 sudo make install
+export LD_LIBRARY_PATH=/home/luis/TOOLS/htslib/
 
 ##TopHat
 sudo apt install tophat
