@@ -297,11 +297,12 @@ sudo apt install mira-assembler --yes
 
 ##QUAST, tambien se puede correr online
 sudo apt-get install -y pkg-config libfreetype6-dev libpng-dev python-matplotlib --yes
-wget https://downloads.sourceforge.net/project/quast/quast-4.6.3.tar.gz
-sudo tar -xzvf quast-4.6.3.tar.gz
-cd quast-4.6.3
+wget https://downloads.sourceforge.net/project/quast/quast-5.0.2.tar.gz
+tar -xzf quast-5.0.2.tar.gz
+cd quast-5.0.2
 sudo ./setup.py install_full
 cd ~/TOOLS
+
 
 ##K-mer Analysis Tolkit (KAT)
 ##Requisitos
