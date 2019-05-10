@@ -1,5 +1,4 @@
-#Programas para Bioinformática con 32 cores.
-##Tiempo estimado 47min
+#Programas para Bioinformática en UBUNTU.
 
 #Actualizar repositorios del sistema
 sudo apt-get update; sudo apt-get upgrade --yes
