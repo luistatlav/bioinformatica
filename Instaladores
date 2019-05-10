@@ -215,6 +215,18 @@ make
 make check
 sudo make install INSTALL="/usr/local/"
 
+
+#Instalar Multiqc (evaluar fastq pre y post cortados)
+#actualizar pip
+sudo pip install multiqc
+#instalar multiqc
+sudo pip install multiqc
+
+
+
+
+
+
 #3-Ensambladores de novo
 
 #instalar kmergenie 1.7048
