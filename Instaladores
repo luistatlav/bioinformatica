@@ -1,5 +1,7 @@
 #Programas para Bioinformática en UBUNTU.
 
+######################################################################################################
+
 #Actualizar repositorios del sistema
 sudo apt-get update; sudo apt-get upgrade --yes
 
@@ -96,7 +98,7 @@ export PATH
 source ~/.bashrc
 cd ~/TOOLS
 
-
+######################################################################################################
 
 #1-Manipulación de Fastq a Fasta
 ##FastX Toolkit: Fastq_to_Fasta
@@ -176,7 +178,7 @@ make
 # Install
 sudo make install
 
-
+######################################################################################################
 
 ##Fastqc
 #git clone --recursive git://github.com/s-andrews/FastQC.git
@@ -221,8 +223,7 @@ sudo pip install multiqc
 #instalar multiqc
 sudo pip install multiqc
 
-
-
+######################################################################################################
 
 
 
@@ -303,6 +304,7 @@ cd quast-5.0.2
 sudo ./setup.py install_full
 cd ~/TOOLS
 
+######################################################################################################
 
 ##K-mer Analysis Tolkit (KAT)
 ##Requisitos
@@ -459,6 +461,8 @@ sudo apt install blast2 --yes
 sudo apt install ncbi-entrez-direct
 ##esearch
 
+######################################################################################################
+
 #5-Instalar visualizadores
 ##Artermis
 sudo apt install artemis --yes
@@ -466,6 +470,8 @@ which artemis >> LOG.txt
 ##Circos (No funcionaba en ubuntu 16.04LTS
 sudo apt install circos --yes
 which circos >> LOG.txt
+
+######################################################################################################
 
 #wget https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.3/bowtie2-2.3.3-linux-x86_64.zip
 #unzip bowtie2-2.3.3-linux-x86_64.zip
@@ -598,6 +604,8 @@ git clone --recursive git://github.com/ExpressionAnalysis/ea-utils.git
 #Analisis de metilación: (PaBio) --
 sudo apt-get install kineticstool
 
+######################################################################################################
+
 ##RATT
 #Descargar de https://ratt.svn.sourceforge.net/svnroot/ratt o
 mkdir ratt
@@ -610,7 +618,7 @@ RATT_CONFIG=$RATT_HOME/RATT.config_bac; export RATT_CONFIG
 cd ratt-code
 sudo cp star.ratt.sh /usr/local/bin/
 
-
+######################################################################################################
 
 #Herramientas para metagenomas
 
