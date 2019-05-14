@@ -104,6 +104,23 @@ cd ~/TOOLS
 ##FastX Toolkit: Fastq_to_Fasta
 sudo apt install fastx-toolkit --yes
 which fastq_to_fasta >> LOG.txt
+#$ fastq_to_fasta -h
+	#usage: fastq_to_fasta [-h] [-r] [-n] [-v] [-z] [-i INFILE] [-o OUTFILE]
+#	version 0.0.6
+	#   [-h]         = This helpful help screen.
+	 #  [-r]         = Rename sequence identifiers to numbers.
+	  # [-n]         = keep sequences with unknown (N) nucleotides.
+			 # Default is to discard such sequences.
+	   #[-v]         = Verbose - report number of sequences.
+			 # If [-o] is specified,  report will be printed to STDOUT.
+			 # If [-o] is not specified (and output goes to STDOUT),
+			 # report will be printed to STDERR.
+	   #[-z]         = Compress output with GZIP.
+	   #[-i INFILE]  = FASTA/Q input file. default is STDIN.
+	   #[-o OUTFILE] = FASTA output file. default is STDOUT.
+
+
+
 ##Instalar Bioawk depends on zlib
 sudo apt install byacc git
 #git clone git://github.com/lh3/bioawk.git && cd bioawk && make && mv awk bioawk && sudo cp bioawk /usr/local/bin/
@@ -112,6 +129,7 @@ cd bioawk
 make 
 sudo cp bioawk /usr/local/bin
 cd .. && rm -rf bioawk
+
 ##Obtener contigs más grandes
 #$ time bioawk -c fastx '{if(length($seq)>1000){print ">"$name;print $seq}}' *.fasta > MasDe1000.fa
 
