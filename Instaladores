@@ -459,12 +459,12 @@ sudo apt install tophat
 which tophat-2 >> LOG.txt
 ##BLAST
 sudo apt install ncbi-blast+ --yes
-which blastn >> LOG.txt
-which blastp >> LOG.txt
+#which blastn >> LOG.txt
+#which blastp >> LOG.txt
 sudo apt install blast2 --yes
 ##Sino funciona blastall por no reconocer la base de datos, entonces volver a exportarla
 #$export BLASTDB=/path/to/blastdbs/of/your/chosing
-#Instalar bases de datos
+##Instalar bases de datos nr
 #cd $BLASTDB
 #sudo update_blastdb --passive --timeout 300 --force --verbose nr
 #ls *.gz |xargs -n1 tar -xzvf
