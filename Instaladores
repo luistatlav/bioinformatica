@@ -337,7 +337,7 @@ sudo make install INSTALL="/usr/local/"
 
 #Instalar Multiqc (evaluar fastq pre y post cortados)
 #actualizar pip
-sudo pip install multiqc
+sudo pip install --upgrade pip
 #instalar multiqc
 sudo pip install multiqc
 
