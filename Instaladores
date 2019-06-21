@@ -350,7 +350,8 @@ sudo pip install multiqc
 #instalar a5-miseq
 wget https://downloads.sourceforge.net/project/ngopt/a5_miseq_linux_20160825.tar.gz
 sudo tar -xzvf a5_miseq_linux_20160825.tar.gz
-
+#Otra versión "a5"
+git clone --recursive git://github.com/levinas/a5
 
 #instalar kmergenie 1.7048
 ##requiere python y R
