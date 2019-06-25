@@ -169,6 +169,8 @@ source ~/.bashrc
 cd ~/TOOLS/
 
 #DEPENDENCIAS:
+##instalar cpan
+sudo  apt-get install build-essential
 ##instalar pdflatex (requerido para velvet)
 sudo apt install texlive-latex-base
 ##Zlib (para bioawk)
