@@ -397,8 +397,8 @@ cd ~/TOOLS/VelvetOptimiser/test
 
 #SPADES
 wget http://cab.spbu.ru/files/release3.13.0/SPAdes-3.13.0-Linux.tar.gz
-$ tar -xzf SPAdes-3.13.0.tar.gz
-$ cd SPAdes-3.13.0
+$ tar -xzf SPAdes-3.13.0-Linux.tar.gz
+$ cd SPAdes-3.13.0-Linux
 #copiar al path o en usr/local/bin
 
 #Oases(Ensamblador para transcriptómica, usa velvet).
