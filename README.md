@@ -1,2 +1,2 @@
 # bioinformatica
-Scripts
+Instaladores
