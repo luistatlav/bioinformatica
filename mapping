@@ -1,0 +1,13 @@
+#BOWTIE2 (global y local)
+##indexa referencia
+$bowtie2-build REFERENCIA.fasta REFERENCIA
+##Correr bowtie2
+$bowtie2 --no-unal -x REFERENCIA -1 READ_01.fastq -2 READ_02.fastq -S OUTPUT.sam
+
+#SMALT (para genomas grandes, local, no da el resultado tan bonito)
+##indexar referencia
+$smalt index -k 13 -S 5 REFERENCIA REFERENCIA.fasta
+##mapeo
+$smalt map -o OUTPUT.sam REFERENCIA READ_01.fastq READ_02.fastq
+
+BWA
