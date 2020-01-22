@@ -3,11 +3,48 @@
 $bowtie2-build REFERENCIA.fasta REFERENCIA
 ##Correr bowtie2
 $bowtie2 --no-unal -x REFERENCIA -1 READ_01.fastq -2 READ_02.fastq -S OUTPUT.sam
+##En modo local para no perder información
+$bowtie2 --local --no-unal -x REFERENCIA -1 READ_01.fastq -2 READ_02.fastq -S OUTPUT.sam
+##Ver resultados: Cuantas lecturas alinearon
+grep -c -P '\t99\t|\t147\t|\t163\t|\t83\t|\t73\t|\t137\t|\t89\t|\t153\t'
+OUTPUT.sam
 
 #SMALT (para genomas grandes, local, no da el resultado tan bonito)
 ##indexar referencia
 $smalt index -k 13 -S 5 REFERENCIA REFERENCIA.fasta
 ##mapeo
 $smalt map -o OUTPUT.sam REFERENCIA READ_01.fastq READ_02.fastq
+##mapeo mas estricto (opciona)
+$smalt map -x -c 100 -o OUTPUT.sam REFERENCIA READ_01.fastq READ_02.fastq
+##Ver resultados: Cuantas lecturas alinearon
+grep -c -P '\t99\t|\t147\t|\t163\t|\t83\t|\t73\t|\t137\t|\t89\t|\t153\t'
+OUTPUT.sam
 
-BWA
+#BWA
+##Indexar
+$bwa indez REFERENCIA.fasta
+##Para segmentos largos
+$BWA mem REFERENCIA.fasta READ_01.fastq.gz READ_02.fastq.gz > OUTPUT.sam
+
+#SAMTOOLS
+##Pasar de SAM a BAM
+$samtools view -S -b -q 30 OUTPUT.sam > OUTPUT.bam
+$samtools view -bSo OUTPUT.bam OUTPUT.sam
+$samtools view -F 0x04 -c OUTPUT.bam
+$samtools view -q 15 -b -o OUTPUT.bam OUTPUT.sam
+###descartara reads menores de 15 de quality score
+##Ordenar archivos
+$samtools sort OUTPUT.bam SORTED.bam
+$samtools sort OUTPUT.bam -o SORTED.bam
+$samtools sort -o SORTED.bam OUTPUT.bam
+##Indexar bam
+$samtools index SORTED.bam
+##Visualizar
+$samtools tview SORTED.bam REFERENCIA.fasta
+
+#weeSAM (evaluar QC del mapeo)
+##Generar html
+$weeSAM --bam SORTED.bam --html SORTED.weeSAM --out SORTED.weeSAM
+##Visualizar con firefox
+$firefox SORTED_html_result/SORTED.html &
+
