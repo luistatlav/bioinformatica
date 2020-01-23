@@ -6,7 +6,7 @@ Traducido y modificado de: https://github.com/kapsakcj/win10-linux-conda-how-to
  - Fácil instalación
 
 1. Actualizar lista de  repositorios en Ubuntu
-> $ sudo apt update
+	> $ sudo apt update
 1. Actualizar repositorios
 > $ sudo apt upgrade --YES
 1. Descargar la versión correcta de Miniconda (miniconda = conda installer) 
