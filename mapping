@@ -50,6 +50,18 @@ $samtools index SORTED.bam
 ##Visualizar
 $samtools tview SORTED.bam REFERENCIA.fasta
 
+##Obtener lecturas mapeadas:
+$mkdir mapeadas
+$samtools view -F 4 OUTPUT.sam -h -b -o mapeadas/OUTPUT.bam
+##Obtener lecturas no mapeadas:
+$mkdir NoMapeadas
+$samtools view -f 4 OUTPUT.sam -h -b -o NoMapeadas/OUTPUT.bam
+## Conversion de formato bam a fastq:
+java -jar /opt/picard.jar SamToFastq I=mapeadas/OUTPUT.bam F=mapeadas/READ_01_mapeadas.fastq F2=mapeadas/READ_02_mapeadas.fastq FU=mapeadas/READ_unpaired.fastq VALIDATION_STRINGENCY=LENIENT
+rm -rf mapeadas/*_unpaired.fastq
+java -jar /opt/picard.jar SamToFastq I=NoMapeadas/OUTPUT.bam F=NoMapeadas/READ_01_NoMapeadas.fastq F2=NoMapeadas/READ_02_NoMapeadas.fastq FU=NoMapeadas/READ_unpaired.fastq VALIDATION_STRINGENCY=LENIENT
+rm -rf mapeadas/*_unpaired.fastq
+
 #weeSAM (evaluar QC del mapeo)
 ##Generar html
 $weeSAM --bam SORTED.bam --html SORTED.weeSAM --out SORTED.weeSAM
