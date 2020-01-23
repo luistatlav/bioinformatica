@@ -22,9 +22,17 @@ OUTPUT.sam
 
 #BWA
 ##Indexar
-$bwa indez REFERENCIA.fasta
+$bwa index REFERENCIA.fasta
 ##Para segmentos largos
-$BWA mem REFERENCIA.fasta READ_01.fastq.gz READ_02.fastq.gz > OUTPUT.sam
+$bwa mem REFERENCIA.fasta READ_01.fastq.gz READ_02.fastq.gz > OUTPUT.sam
+$bwa aln REFERENCIA.fasta READ_01.fastq > OUTPUT.sai
+$bwa samse REFERENCIA.fasta OUTPUT.sai READ_01.fastq > OUTPUT-se.sam
+$bwa samse REFERENCIA.fasta OUTPUT_01.sai READ_01.fastq OUTPUT_02.sai READ_02.fastq > OUTPUT-pe.sam
+$bwa bwasw REFERENCIA.fasta Long_READ.fastq > OUTPUT.SAM
+##Para nanopore:
+$bwa mem -t 14 -x ont2d ~/workdir/assembly/assembly.contigs.fasta ~/workdir/basecall/ONT.fastq.gz | samtools view - -Sb | samtools sort - -@14 > ~/workdir/nanopore_mapping/mapping.sorted.bam
+$samtools index ~/workdir/nanopore_mapping/mapping.sorted.bam
+
 
 #SAMTOOLS
 ##Pasar de SAM a BAM
