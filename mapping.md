@@ -35,25 +35,34 @@ OUTPUT.sam
 
 ## Para segmentos largos
 >$ bwa mem REFERENCIA.fasta READ_01.fastq.gz READ_02.fastq.gz > OUTPUT.sam
+
 >$ bwa aln REFERENCIA.fasta READ_01.fastq > OUTPUT.sai
+
 >$ bwa samse REFERENCIA.fasta OUTPUT.sai READ_01.fastq > OUTPUT-se.sam
+
 >$ bwa samse REFERENCIA.fasta OUTPUT_01.sai READ_01.fastq OUTPUT_02.sai READ_02.fastq > OUTPUT-pe.sam
+
 >$ bwa bwasw REFERENCIA.fasta Long_READ.fastq > OUTPUT.SAM
 
 ## Para Nanopore (MinION):
 >$ bwa mem -t 14 -x ont2d ~/workdir/assembly/assembly.contigs.fasta ~/workdir/basecall/ONT.fastq.gz | samtools view - -Sb | samtools sort - -@14 > ~/workdir/nanopore_mapping/mapping.sorted.bam
+
 >$ samtools index ~/workdir/nanopore_mapping/mapping.sorted.bam
 
 # SAMTOOLS
 ## Pasar de SAM a BAM
 >$ samtools view -S -b -q 30 OUTPUT.sam > OUTPUT.bam
+
 >$ samtools view -bSo OUTPUT.bam OUTPUT.sam
+
 >$ samtools view -F 0x04 -c OUTPUT.bam
 ## Descartar reads menores de 15 de quality score
 >$ samtools view -q 15 -b -o OUTPUT.bam OUTPUT.sam
 ## Ordenar archivos
 >$ samtools sort OUTPUT.bam SORTED.bam
+
 >$ samtools sort OUTPUT.bam -o SORTED.bam
+
 >$ samtools sort -o SORTED.bam OUTPUT.bam
 ## Indexar bam
 >$ samtools index SORTED.bam
@@ -61,13 +70,16 @@ OUTPUT.sam
 >$ samtools tview SORTED.bam REFERENCIA.fasta
 ## Obtener lecturas mapeadas:
 >$ mkdir mapeadas
+
 >$ samtools view -F 4 OUTPUT.sam -h -b -o mapeadas/OUTPUT.bam
 ## Obtener lecturas no mapeadas:
 >$ mkdir NoMapeadas
+
 >$ samtools view -f 4 OUTPUT.sam -h -b -o NoMapeadas/OUTPUT.bam
 ## Conversion de formato bam a fastq:
 >$ java -jar /opt/picard.jar SamToFastq I=mapeadas/OUTPUT.bam F=mapeadas/READ_01_mapeadas.fastq F2=mapeadas/READ_02_mapeadas.fastq FU=mapeadas/READ_unpaired.fastq VALIDATION_STRINGENCY=LENIENT
 rm -rf mapeadas/*_unpaired.fastq
+
 >$ java -jar /opt/picard.jar SamToFastq I=NoMapeadas/OUTPUT.bam F=NoMapeadas/READ_01_NoMapeadas.fastq F2=NoMapeadas/READ_02_NoMapeadas.fastq FU=NoMapeadas/READ_unpaired.fastq VALIDATION_STRINGENCY=LENIENT
 rm -rf mapeadas/*_unpaired.fastq
 
@@ -75,4 +87,5 @@ rm -rf mapeadas/*_unpaired.fastq
 ## Generar html
 >$ weeSAM --bam SORTED.bam --html SORTED.weeSAM --out SORTED.weeSAM
 ## Visualizar con firefox
+
 >$ firefox SORTED_html_result/SORTED.html &
