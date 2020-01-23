@@ -1,11 +1,4 @@
-# Cómo instalar conda en Linux usando Miniconda (en Windows) o Ubuntu
-Traducido y modificado de: https://github.com/kapsakcj/win10-linux-conda-how-to
-## Ventajas:
-
- - Reproducibilidad
- - Fácil instalación
-
-## Instalación de Subsystema Linux en Windows 10
+# Instalación de Subsystema Linux en Windows 10
 Requisitos:
 1. Windows 10, 64-bit
 2. Ubuntu obtenido de la Microsoft store, preferencia LTS, (Viene pre-cargado con todo lo necesario para instalar conda)
