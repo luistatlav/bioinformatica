@@ -1,34 +1,47 @@
 #BOWTIE2 (global y local)
+
 ##indexa referencia
 >$bowtie2-build REFERENCIA.fasta REFERENCIA
+
 ##Correr bowtie2
 >$bowtie2 --no-unal -x REFERENCIA -1 READ_01.fastq -2 READ_02.fastq -S OUTPUT.sam
+
 ##En modo local para no perder información
 >$bowtie2 --local --no-unal -x REFERENCIA -1 READ_01.fastq -2 READ_02.fastq -S OUTPUT.sam
+
 ##Ver resultados: Cuantas lecturas alinearon
 >$grep -c -P '\t99\t|\t147\t|\t163\t|\t83\t|\t73\t|\t137\t|\t89\t|\t153\t'
 OUTPUT.sam
+
 
 #SMALT (para genomas grandes, local, no da el resultado tan bonito)
+
 ##indexar referencia
 >$smalt index -k 13 -S 5 REFERENCIA REFERENCIA.fasta
+
 ##mapeo
 >$smalt map -o OUTPUT.sam REFERENCIA READ_01.fastq READ_02.fastq
+
 ##mapeo mas estricto (opciona)
 >$smalt map -x -c 100 -o OUTPUT.sam REFERENCIA READ_01.fastq READ_02.fastq
+
 ##Ver resultados: Cuantas lecturas alinearon
 >$grep -c -P '\t99\t|\t147\t|\t163\t|\t83\t|\t73\t|\t137\t|\t89\t|\t153\t'
 OUTPUT.sam
 
+
 #BWA
+
 ##Indexar
 >$bwa index REFERENCIA.fasta
+
 ##Para segmentos largos
 >$bwa mem REFERENCIA.fasta READ_01.fastq.gz READ_02.fastq.gz > OUTPUT.sam
 >$bwa aln REFERENCIA.fasta READ_01.fastq > OUTPUT.sai
 >$bwa samse REFERENCIA.fasta OUTPUT.sai READ_01.fastq > OUTPUT-se.sam
 >$bwa samse REFERENCIA.fasta OUTPUT_01.sai READ_01.fastq OUTPUT_02.sai READ_02.fastq > OUTPUT-pe.sam
 >$bwa bwasw REFERENCIA.fasta Long_READ.fastq > OUTPUT.SAM
+
 ##Para nanopore:
 >$bwa mem -t 14 -x ont2d ~/workdir/assembly/assembly.contigs.fasta ~/workdir/basecall/ONT.fastq.gz | samtools view - -Sb | samtools sort - -@14 > ~/workdir/nanopore_mapping/mapping.sorted.bam
 >$samtools index ~/workdir/nanopore_mapping/mapping.sorted.bam
