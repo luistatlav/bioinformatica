@@ -36,9 +36,9 @@ Traducido y modificado de: https://github.com/kapsakcj/win10-linux-conda-how-to
 1. Aceptar los parámetros por defecto (se pueden cambiar después si desea).
 1. Cerrar y reabrir el terminal para asegurarse que los cambios surgan efecto.
 1. Evaluar la instalación (Debería aparecer una lista de paquetes)
-> $ conda list
+	> $ conda list
 1. Actualizar conda
-> $ conda update -n base -c  defaults conda
+	> $ conda update -n base -c  defaults conda
 1. Configurar el canal Bioconda en conda (https://bioconda.github.io/#using-bioconda)
 1. Correr los comandos en el siguiente orden:
 	> $ conda config --add channels defaults
