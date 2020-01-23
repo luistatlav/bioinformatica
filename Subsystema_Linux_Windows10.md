@@ -25,4 +25,4 @@ Requisitos:
 		>Escriba su contraseña (no se va a ver en la pantalla)
 	3. Retype new UNIX password:
  		>Vuelva a escribir su contraseña (no se va a ver en la pantalla)
- Listo!!!
+Listo!!!
