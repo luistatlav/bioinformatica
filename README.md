@@ -1,2 +1,2 @@
 # bioinformatica
-Instaladores
+Instaladores y comandos para distintos usos
