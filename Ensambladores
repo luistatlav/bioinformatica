@@ -1,0 +1,2 @@
+spades
+spades.py -1 READ_01 -2 READ_02 --careful --cov-cutoff auto -o OUTPUT
