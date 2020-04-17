@@ -1,5 +1,5 @@
-*BORRADOR
-**Fuente: https://www.enmimaquinafunciona.com/pregunta/112309/borrar-todo-el-texto-antes-y-despues-de-una-determinada-cadena-de
+* BORRADOR
+** Fuente: https://www.enmimaquinafunciona.com/pregunta/112309/borrar-todo-el-texto-antes-y-despues-de-una-determinada-cadena-de
 
 Si asumimos que el SOMEURL y first-category no contienen dígitos, podemos simplemente buscar la primera cadena no vacía de números y eliminar todo lo demás.
 
