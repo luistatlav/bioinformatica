@@ -576,6 +576,7 @@ export LD_LIBRARY_PATH=/home/luis/TOOLS/htslib/
 ##TopHat
 sudo apt install tophat
 which tophat-2 >> LOG.txt
+
 ##BLAST
 sudo apt install ncbi-blast+ --yes
 #which blastn >> LOG.txt
@@ -593,6 +594,10 @@ sudo apt install blast2 --yes
 ### makeblastdb -dbtype nucl -in MULTI.fasta -input_type fasta -title NUEVO-titulo -parse_seqids -hash_index
 ##Proteinas
 ### makeblastdb -dbtype prot -in MULTI.fasta -input_type fasta -title NUEVO-titulo -parse_seqids -hash_index
+#Ejemplo de aplicación de BLASTp:
+$ makeblastdb -dbtype prot -in Proteoma_Humano.fasta -input_type fasta -title Proteoma_Humano.fasta -parse_seqids -hash_index
+$ blastp -query Spike.fasta -db ../Proteoma_Humano.fasta -max_target_seqs 1 -outfmt "6 qseqid qlen sseqid slen qstart qend sstart send evalue bitscore score length pident nident mismatch positive gapopen gaps ppos frames qframe sframe staxids lcaid lcataxid" > SpikeTODO_output.csv
+
 
 #Instalar herramientas de búsqueda de ncbi
 sudo apt install ncbi-entrez-direct
