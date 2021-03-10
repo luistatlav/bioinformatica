@@ -22,6 +22,22 @@ Traducido y modificado de: https://github.com/kapsakcj/win10-linux-conda-how-to
 	> $ conda list
 1. Actualizar conda
 	> $ conda update -n base -c  defaults conda
+1. Se pueden buscar programas en los siguientes repositorios
+        > https://anaconda.org/
+        > https://bioconda.github.io/index.html
+
+
+
+
+
+
+
+
+
+
+
+Versión antigua....:
+
 1. Actualizar lista de  repositorios en Ubuntu
 	> $ sudo apt update
 1. Actualizar repositorios
