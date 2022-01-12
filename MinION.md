@@ -26,10 +26,15 @@ guppy_basecaller --compress_fastq -i FAST5/ -s FASTQ/ --cpu_threads_per_caller 1
 
 ## Fusionar outputs:
 ```sh
-$ cat FASTQ/pass/*.fastq.gz > FASTQ/pass/GUPPY_basecall.fastq.gz
+cat FASTQ/pass/*.fastq.gz > FASTQ/pass/GUPPY_basecall.fastq.gz
 ```
 
 ## Contabilizar FASTQ
 ```sh
 zcat FASTQ/pass/GUPPY_basecall.fastq.gz | wc -l | awk '{print $1/4}'
+```
+
+## Control de calidad con FASTQC
+```sh
+fastqc -t 14 -o OUTPUT/ INPUT.fastq
 ```
