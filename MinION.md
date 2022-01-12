@@ -37,4 +37,6 @@ zcat FASTQ/pass/GUPPY_basecall.fastq.gz | wc -l | awk '{print $1/4}'
 ## Control de calidad con FASTQC
 ```sh
 fastqc -t 14 -o OUTPUT/ INPUT.fastq
+cd OUTPUT
+firefox OUTPUT.html
 ```
