@@ -40,9 +40,40 @@ h5ls batch170.fast5 | wc -l
 guppy_basecaller --print_workflows | grep "FLOWCELL" | grep "KIT NAME"
 ```
 
-### Llamado de bases con guppy_basecaller:
+### Llamado de bases con guppy_basecaller (por defecto: High Accuracy (HAC); Q-score: ON; en ARN cambiar U a T: OFF):
 ```sh
-guppy_basecaller --compress_fastq -i FAST5/ -s FASTQ/ --cpu_threads_per_caller 14 --num_callers 1 -c CONFIG_NAME.cfg
+guppy_basecaller --compress_fastq -i INPUT_FAST5/ -s OUTPUT_FASTQ/ --cpu_threads_per_caller 14 --num_callers 1 -c CONFIG_NAME.cfg
+```
+si son muchos subfolders:
+```sh
+guppy_basecaller --compress_fastq -i INPUT_FAST5/ --recursive -s OUTPUT_FASTQ/ --cpu_threads_per_caller 14 --num_callers 1 -c CONFIG_NAME.cfg
+```
+ó
+```sh
+guppy_basecaller --compress_fastq -i INPUT_FAST5/ -s OUTPUT_FASTQ/ --cpu_threads_per_caller 14 --num_callers 1 --flowcell FLOCELL_Version --kit KIT_version
+```
+ó
+```sh
+ls INPUT_FAST5/*.fast5 | guppy_basecaller --save_path OUTPUT_FASTQ/ --config CONFIG_NAME.cfg
+```
+ó BARCODING en simultaneo
+```sh
+guppy_basecaller --compress_fastq --input_path INPUT_FAST5/ --save_path OUTPUT_FASTQ/ --cpu_threads_per_caller 14 --num_callers 1 -c CONFIG_NAME.cfg --barcode_kits SQK-RBK001
+```
+
+### Barcoding/demultiplexing:
+```sh
+guppy_barcoder --print_kits
+guppy_barcoder --input_path INPUT_FASTQ/ --save_path OUTPUT_FASTQ/ --config CONFIG_NAME.cfg
+```
+ó
+```sh
+guppy_barcoder --input_path INPUT_FASTQ/ --save_path OUTPUT_FASTQ/ --config CONFIG_NAME.cfg --barcode_kits SQK-RPB004
+```
+
+### Eliminar barcodes
+```sh
+guppy_barcoder --input_path INPUT_FASTQ/ --save_path OUTPUT_FASTQ/ --config CONFIG_NAME.cfg --trim_barcodes
 ```
 
 ### Fusionar outputs:
