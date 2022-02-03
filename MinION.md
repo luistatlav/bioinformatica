@@ -28,12 +28,12 @@ sudo apt-get install hdf5-tools
 ```
 
 ### Ver el número de lecturas en el archivo FAST5
-´´´sh
+```sh
 h5ls batch1.fast5 | wc -l
 h5ls batch10.fast5 | wc -l
 h5ls batch151.fast5 | wc -l
 h5ls batch170.fast5 | wc -l
-´´´
+```
 
 ### Inspeccionar FAST5 con guppy_basecaller:
 ```sh
