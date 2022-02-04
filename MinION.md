@@ -36,6 +36,7 @@ h5ls batch170.fast5 | wc -l
 ```
 
 ### Inspeccionar FAST5 con guppy_basecaller:
+Buscar en el archivo: "Final_summary_....txt" la celda y el kit
 ```sh
 guppy_basecaller --print_workflows | grep "FLOWCELL" | grep "KIT NAME"
 ```
